@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Startup Analyst</title>
+    <link rel="stylesheet" href="/static/style.css?v=5">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <h1>AI Startup Analyst</h1>
+            <p id="subtitle" class="subtitle">Upload one or more pitch decks (.txt or .pdf) to begin analysis</p>
+        </header>
+
+        <main>
+            <div class="toggle-container">
+                <button id="show-analysis-btn" class="toggle-btn active">Investment Analysis</button>
+                <button id="show-deal-notes-btn" class="toggle-btn">Deal Notes</button>
+            </div>
+
+            <!-- Investment Analysis Form -->
+            <form id="upload-form">
+                <div id="dynamic-file-input-container"></div>
+                <div class="button-container">
+                    <button type="button" id="add-file-btn">Add File</button>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" id="analyze-btn" disabled>
+                        Analyze Pitch Decks
+                    </button>
+                    <button type="button" id="analyze-another-btn" class="hidden">
+                        Analyze Another Deck
+                    </button>
+                </div>
+            </form>
+
+            <!-- Deal Notes Form -->
+            <form id="deal-notes-form" class="hidden">
+                <div class="upload-area" id="deal-notes-upload-area">
+                    <div class="upload-icon">📝</div>
+                    <label for="deal-notes-file-input" class="file-label">
+                        Choose Files
+                    </label>
+                    <input type="file" id="deal-notes-file-input" name="files" accept=".txt,.pdf,.eml" required multiple>
+                    <p class="drag-text">or drag and drop files here (pitch decks, transcripts, emails)</p>
+                </div>
+
+                <div class="selected-files" id="deal-notes-selected-files"></div>
+
+                <div class="button-container">
+                    <button type="submit" id="generate-notes-btn" disabled>
+                        Generate Deal Notes
+                    </button>
+                    <button type="button" id="generate-another-btn" class="hidden">
+                        Generate Other Notes
+                    </button>
+                </div>
+            </form>
+
+            <div id="results-container" class="hidden">
+                <div id="spinner" class="hidden"></div>
+                <h2 class="results-title">Analysis Reports</h2>
+                <div id="reports-container"></div>
+            </div>
+
+            <div id="deal-notes-results-container" class="hidden">
+                <div id="deal-notes-spinner" class="hidden"></div>
+                <h2 class="results-title">Deal Notes</h2>
+                <div id="deal-notes-report-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js?v=5"></script>
+</body>
+</html>
