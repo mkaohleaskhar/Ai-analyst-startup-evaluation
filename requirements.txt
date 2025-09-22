@@ -1,0 +1,7 @@
+google-cloud-aiplatform
+google-cloud-vision
+pandas
+python-dotenv
+fastapi
+uvicorn
+python-multipart
